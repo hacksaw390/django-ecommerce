@@ -80,97 +80,99 @@
                         <div class="sticky-sidebar" data-sticky-options="{'bottom': 50}">
                             <h3 class="title title-simple text-left">Your Order</h3>
                             <div class="summary mb-4">
-                                <table class="order-table">
+                                <table class="order-table border">
                                     <thead>
                                     <tr>
                                         <th>Product</th>
-                                        <th>Total</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Subtotal</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    {% for item in items %}
                                     <tr>
-                                        <td class="product-name">Beige knitted elastic runner shoes</td>
-                                        <td class="product-total">$84.00</td>
+                                        <td class="product-name">{{item.product.name}}</td>
+                                        <td class="product-name">{{item.product.price}}</td>
+                                        <td class="product-name">{{item.quantity}}</td>
+                                        <td class="product-total">${{item.get_total}}</td>
                                     </tr>
-                                    <tr>
-                                        <td class="product-name">Blue utility pinafore denim dress</td>
-                                        <td class="product-total">$76.00</td>
-                                    </tr>
+                                    {% endfor %}
                                     <tr class="cart-subtotal">
-                                        <td>Subtotal:</td>
-                                        <td>$160.00</td>
+                                        <td>Items:</td>
+                                        <td>{{order.get_cart_items}}</td>
                                     </tr>
-                                    <tr class="shipping">
-                                        <td>Shipping:</td>
-                                        <td>Free Shipping</td>
-                                    </tr>
+<!--                                    <tr class="shipping">-->
+<!--                                        <td>Subtotal:</td>-->
+<!--                                        <td>${{order.get_cart_total}}</td>-->
+<!--                                    </tr>-->
                                     <tr class="order-total">
                                         <td>Total:</td>
-                                        <td>$160.00</td>
+                                        <td>${{order.get_cart_total}}</td>
                                     </tr>
                                     </tbody>
                                 </table>
-                                <div class="payment accordion radio-type">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <a href="#collapse1" class="collapse">Direct bank transfer</a>
-                                        </div>
-                                        <div id="collapse1" class="expanded">
-                                            <div class="card-body">
-                                                Make your payment directly into our bank account. Please use
-                                                your Order ID as the payment reference. Your order will not be
-                                                shipped until the funds have cleared in our account.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <a href="#collapse2" class="expand">Check payments</a>
-                                        </div>
-                                        <div id="collapse2" class="collapsed">
-                                            <div class="card-body">
-                                                Ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
-                                                Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <a href="#collapse3" class="expand">Cash on delivery</a>
-                                        </div>
-                                        <div id="collapse3" class="collapsed">
-                                            <div class="card-body">
-                                                Quisque volutpat mattis eros. Lorem ipsum dolor sit amet,
-                                                consectetuer adipiscing elit. Donec odio. Quisque volutpat
-                                                mattis eros.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <a href="#collapse4" class="expand">PayPal</a>
-                                        </div>
-                                        <div id="collapse4" class="collapsed">
-                                            <div class="card-body">
-                                                Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra
-                                                non, semper suscipit, posuere a, pede. Donec nec justo eget
-                                                felis facilisis fermentum.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <a href="#collapse5" class="expand">Credit Card (Stripe)</a>
-                                        </div>
-                                        <div id="collapse5" class="collapsed">
-                                            <div class="card-body">
-                                                Donec nec justo eget felis facilisis fermentum.Lorem ipsum dolor
-                                                sit amet, consectetuer adipiscing elit. Donec odio. Quisque
-                                                volutpat mattis eros. Lorem ipsum dolor sit ame.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+<!--                                <div class="payment accordion radio-type">-->
+<!--                                    <div class="card">-->
+<!--                                        <div class="card-header">-->
+<!--                                            <a href="#collapse1" class="collapse">Direct bank transfer</a>-->
+<!--                                        </div>-->
+<!--                                        <div id="collapse1" class="expanded">-->
+<!--                                            <div class="card-body">-->
+<!--                                                Make your payment directly into our bank account. Please use-->
+<!--                                                your Order ID as the payment reference. Your order will not be-->
+<!--                                                shipped until the funds have cleared in our account.-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="card">-->
+<!--                                        <div class="card-header">-->
+<!--                                            <a href="#collapse2" class="expand">Check payments</a>-->
+<!--                                        </div>-->
+<!--                                        <div id="collapse2" class="collapsed">-->
+<!--                                            <div class="card-body">-->
+<!--                                                Ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.-->
+<!--                                                Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="card">-->
+<!--                                        <div class="card-header">-->
+<!--                                            <a href="#collapse3" class="expand">Cash on delivery</a>-->
+<!--                                        </div>-->
+<!--                                        <div id="collapse3" class="collapsed">-->
+<!--                                            <div class="card-body">-->
+<!--                                                Quisque volutpat mattis eros. Lorem ipsum dolor sit amet,-->
+<!--                                                consectetuer adipiscing elit. Donec odio. Quisque volutpat-->
+<!--                                                mattis eros.-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="card">-->
+<!--                                        <div class="card-header">-->
+<!--                                            <a href="#collapse4" class="expand">PayPal</a>-->
+<!--                                        </div>-->
+<!--                                        <div id="collapse4" class="collapsed">-->
+<!--                                            <div class="card-body">-->
+<!--                                                Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra-->
+<!--                                                non, semper suscipit, posuere a, pede. Donec nec justo eget-->
+<!--                                                felis facilisis fermentum.-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="card">-->
+<!--                                        <div class="card-header">-->
+<!--                                            <a href="#collapse5" class="expand">Credit Card (Stripe)</a>-->
+<!--                                        </div>-->
+<!--                                        <div id="collapse5" class="collapsed">-->
+<!--                                            <div class="card-body">-->
+<!--                                                Donec nec justo eget felis facilisis fermentum.Lorem ipsum dolor-->
+<!--                                                sit amet, consectetuer adipiscing elit. Donec odio. Quisque-->
+<!--                                                volutpat mattis eros. Lorem ipsum dolor sit ame.-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
                             </div>
                             <button type="submit" class="btn btn-primary btn-order">Place Order</button>
                         </div>
