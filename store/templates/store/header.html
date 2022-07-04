@@ -255,9 +255,9 @@
                             <a href="javascript:;" class="cart-toggle label-block link">
                                 <div class="cart-label d-lg-show">
                                     <span class="cart-name">Shopping Cart:</span>
-                                    <span class="cart-price">$0.00</span>
+                                    <span class="cart-price">${{order.get_cart_total}}</span>
                                 </div>
-                                <i class="d-icon-bag"><span class="cart-count">2</span></i>
+                                <i class="d-icon-bag"><span class="cart-count">{{cartItems}}</span></i>
                             </a>
                             <div class="canvas-overlay"></div>
                             <!-- End Cart Toggle -->
