@@ -20,13 +20,13 @@
                 <div class="row gutter-lg">
                     <div class="col-lg-8 mb-6" id="shipping-info">
                         <h3 class="title title-simple text-left">Billing Details</h3>
-                        <div class="row">
+                        <div class="row userinfo" id="userinfo">
                             <div class="col-xs-6">
-                                <label> Nameasdf</label>
+                                <label> Name</label>
                                 <input type="text" class="form-control" name="first-name" />
                             </div>
                             <div class="col-xs-6">
-                                <label>Emailadsf</label>
+                                <label>Email</label>
                                 <input type="email" class="form-control" name="email" />
                             </div>
                         </div>
@@ -41,7 +41,7 @@
 <!--                               placeholder="House number and Street name"/>-->
 <!--                        <input type="text" class="form-control" name="address2" required=""-->
 <!--                               placeholder="Appartments, suite, unit etc ..."/>-->
-                        <div class="row">
+                        <div class="row formwraper">
                             <div class="col-xs-6">
                                 <label>Address *</label>
                                 <input type="text" class="form-control" name="address" />
@@ -178,7 +178,9 @@
                             </div>
 
                             <button type="submit" id="form-button" class="btn btn-primary btn-order">Shipping</button>
-                            <button type="submit" id="payment-info" class="btn btn-primary btn-order hidden">Place Order</button>
+                            <p id="payment-info" class="hidden">
+                                <button id="make-payment">Place Order</button>
+                            </p>
                         </div>
                     </aside>
                 </div>
@@ -187,6 +189,11 @@
     </div>
 
 </main>
+<style>
+    .hidden{
+        display: none;
+    }
+</style>
 
 <script type="text/javascript">
 
@@ -196,13 +203,31 @@
         document.getElementById('shipping-info').innerHTML = ''
     }
 
-    vat form = document.getElementById('form')
+    if (user != 'AnonymousUser'){
+        document.getElementById('userinfo').innerHTML = ''
+    }
+
+    if(shipping == 'False' && user != 'AnonymousUser'){
+        document.getElementById('formwraper').classList.add('hidden')
+        document.getElementById('payment-info').classList.remove('hidden')
+    }
+
+    var form = document.getElementById('form')
+
 
     form.addEventListener('submit', function(e){
-        e.preventDefault
+        e.preventDefault()
         document.getElementById('form-button').classList.add('hidden')
         document.getElementById('payment-info').classList.remove('hidden')
     })
+
+    document.getElementById('make-payment').addEventListener('click', function(e){
+        submitFormData()
+    })
+
+    function submitFormData(){
+        console.log('sumited')
+    }
 
 </script>
 {% include 'store/footer.html' %}
