@@ -23,7 +23,7 @@
                         <div class="row userinfo" id="userinfo">
                             <div class="col-xs-6">
                                 <label> Name</label>
-                                <input type="text" class="form-control" name="first-name" />
+                                <input type="text" class="form-control" name="name" />
                             </div>
                             <div class="col-xs-6">
                                 <label>Email</label>
@@ -41,7 +41,8 @@
 <!--                               placeholder="House number and Street name"/>-->
 <!--                        <input type="text" class="form-control" name="address2" required=""-->
 <!--                               placeholder="Appartments, suite, unit etc ..."/>-->
-                        <div class="row formwraper">
+                        <div id="form-wrapper" class="">
+                        <div class="row" >
                             <div class="col-xs-6">
                                 <label>Address *</label>
                                 <input type="text" class="form-control" name="address" />
@@ -61,6 +62,7 @@
                                 <input type="text" class="form-control" name="city" required=""/>
                             </div>
                         </div>
+                            </div>
 <!--                        <label>Email address *</label>-->
 <!--                        <input type="text" class="form-control" name="email-address" required=""/>-->
 <!--                        <div class="form-checkbox mt-8">-->
@@ -178,8 +180,9 @@
                             </div>
 
                             <button type="submit" id="form-button" class="btn btn-primary btn-order">Shipping</button>
+
                             <p id="payment-info" class="hidden">
-                                <button id="make-payment">Place Order</button>
+                                <button id="make-payment" class="btn btn-success btn-block">Place Order</button>
                             </p>
                         </div>
                     </aside>
@@ -198,6 +201,7 @@
 <script type="text/javascript">
 
     var shipping = '{{order.shipping}}'
+    var total = '{{order.get_cart_total}}'
 
     if (shipping == 'False'){
         document.getElementById('shipping-info').innerHTML = ''
@@ -208,7 +212,7 @@
     }
 
     if(shipping == 'False' && user != 'AnonymousUser'){
-        document.getElementById('formwraper').classList.add('hidden')
+        document.getElementById('form-wrapper').classList.add('hidden')
         document.getElementById('payment-info').classList.remove('hidden')
     }
 
@@ -227,6 +231,47 @@
 
     function submitFormData(){
         console.log('sumited')
+
+        var userFormData = {
+            'name':null,
+            'email':null,
+            'total':total,
+        }
+
+        var shippingInfo = {
+            'address':null,
+            'city':null,
+            'state':null,
+            'zipcode':null,
+        }
+
+        if(shipping != 'False'){
+            shippingInfo.address = form.address.value
+            shippingInfo.city = form.city.value
+            shippingInfo.state = form.state.value
+            shippingInfo.zipcode = form.zipcode.value
+        }
+
+        if(user == 'AnonymousUser'){
+            userFormData.name = form.name.value
+            userFormData.email = form.email.value
+        }
+
+<!--        var url = 'order_process'-->
+<!--        fetch(url,{-->
+<!--            method: 'POST'-->
+<!--            headers: {-->
+<!--                'Content-Type': 'application/json',-->
+<!--                'X-CSRFToken' : csrftoken-->
+<!--            },-->
+<!--            body:JSON.stringify({'form': userFormData, 'shipping':shippingInfo})-->
+<!--        })-->
+<!--        .then((response)=> response.json())-->
+<!--        .then((data)=> {-->
+<!--        console.log('success', data)-->
+<!--        alert('complated')-->
+<!--        window.location.href = "{% url 'store' %}"-->
+<!--        })-->
     }
 
 </script>

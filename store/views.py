@@ -87,3 +87,8 @@ def updateItem(request):
     print(productId)
     print(action)
     return JsonResponse('Item was added...', safe=False)
+
+
+def orderProsess(request):
+    print(request.body)
+    return JsonResponse('ok', safe=False)
