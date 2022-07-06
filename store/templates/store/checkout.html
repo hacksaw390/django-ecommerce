@@ -18,9 +18,9 @@
         <div class="container mt-4">
             <form action="#" class="form" id="form">
                 <div class="row gutter-lg">
-                    <div class="col-lg-8 mb-6" id="shipping-info">
+                    <div class="col-lg-8 mb-6" id="form-wrapper">
                         <h3 class="title title-simple text-left">Billing Details</h3>
-                        <div class="row userinfo" id="userinfo">
+                        <div class="row userinfo" id="user-info">
                             <div class="col-xs-6">
                                 <label> Name</label>
                                 <input type="text" class="form-control" name="name" />
@@ -32,54 +32,28 @@
                         </div>
                         <hr>
                         <hr>
-<!--                        <label>Company Name(Optional)</label>-->
-<!--                        <input type="text" class="form-control" name="company-name" required=""/>-->
-<!--                        <label>Country *</label>-->
-<!--                        <input type="text" class="form-control" name="country" required=""/>-->
-<!--                        <label>Street Address *</label>-->
-<!--                        <input type="text" class="form-control" name="address1" required=""-->
-<!--                               placeholder="House number and Street name"/>-->
-<!--                        <input type="text" class="form-control" name="address2" required=""-->
-<!--                               placeholder="Appartments, suite, unit etc ..."/>-->
-                        <div id="form-wrapper" class="">
-                        <div class="row" >
-                            <div class="col-xs-6">
-                                <label>Address *</label>
-                                <input type="text" class="form-control" name="address" />
-                            </div>
-                            <div class="col-xs-6">
-                                <label>State *</label>
-                                <input type="text" class="form-control" name="state" required=""/>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <label>Postcode / ZIP *</label>
-                                <input type="text" class="form-control" name="zipcode" required=""/>
-                            </div>
-                            <div class="col-xs-6">
-                                <label>City *</label>
-                                <input type="text" class="form-control" name="city" required=""/>
-                            </div>
-                        </div>
-                            </div>
-<!--                        <label>Email address *</label>-->
-<!--                        <input type="text" class="form-control" name="email-address" required=""/>-->
-<!--                        <div class="form-checkbox mt-8">-->
-<!--                            <input type="checkbox" class="custom-checkbox" id="create-account"-->
-<!--                                   name="create-account">-->
-<!--                            <label class="form-control-label" for="create-account">Create an account?</label>-->
-<!--                        </div>-->
-<!--                        <div class="form-checkbox mb-8">-->
-<!--                            <input type="checkbox" class="custom-checkbox" id="different-address"-->
-<!--                                   name="different-address">-->
-<!--                            <label class="form-control-label" for="different-address">Ship to a different-->
-<!--                                address?</label>-->
-<!--                        </div>-->
-<!--                        <label>Order Notes (optional)</label>-->
-<!--                        <textarea class="form-control" cols="30" rows="6"-->
-<!--                                  placeholder="Notes about your order, e.g. special notes for delivery"></textarea>-->
+                        <div id="shipping-info">
+						<hr>
+						<p>Shipping Information:</p>
+						<hr>
+						<div class="form-field">
+							<input class="form-control" type="text" name="address" placeholder="Address..">
+						</div>
+						<div class="form-field">
+							<input class="form-control" type="text" name="city" placeholder="City..">
+						</div>
+						<div class="form-field">
+							<input class="form-control" type="text" name="state" placeholder="State..">
+						</div>
+						<div class="form-field">
+							<input class="form-control" type="text" name="zipcode" placeholder="Zip code..">
+						</div>
+						<div class="form-field">
+							<input class="form-control" type="text" name="country" placeholder="Zip code..">
+						</div>
+
                     </div>
+				</div>
                     <aside class="col-lg-4 sticky-sidebar-wrapper">
                         <div class="sticky-sidebar" data-sticky-options="{'bottom': 50}">
                             <h3 class="title title-simple text-left">Your Order</h3>
@@ -116,67 +90,7 @@
                                     </tr>
                                     </tbody>
                                 </table>
-<!--                                <div class="payment accordion radio-type">-->
-<!--                                    <div class="card">-->
-<!--                                        <div class="card-header">-->
-<!--                                            <a href="#collapse1" class="collapse">Direct bank transfer</a>-->
-<!--                                        </div>-->
-<!--                                        <div id="collapse1" class="expanded">-->
-<!--                                            <div class="card-body">-->
-<!--                                                Make your payment directly into our bank account. Please use-->
-<!--                                                your Order ID as the payment reference. Your order will not be-->
-<!--                                                shipped until the funds have cleared in our account.-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="card">-->
-<!--                                        <div class="card-header">-->
-<!--                                            <a href="#collapse2" class="expand">Check payments</a>-->
-<!--                                        </div>-->
-<!--                                        <div id="collapse2" class="collapsed">-->
-<!--                                            <div class="card-body">-->
-<!--                                                Ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.-->
-<!--                                                Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="card">-->
-<!--                                        <div class="card-header">-->
-<!--                                            <a href="#collapse3" class="expand">Cash on delivery</a>-->
-<!--                                        </div>-->
-<!--                                        <div id="collapse3" class="collapsed">-->
-<!--                                            <div class="card-body">-->
-<!--                                                Quisque volutpat mattis eros. Lorem ipsum dolor sit amet,-->
-<!--                                                consectetuer adipiscing elit. Donec odio. Quisque volutpat-->
-<!--                                                mattis eros.-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="card">-->
-<!--                                        <div class="card-header">-->
-<!--                                            <a href="#collapse4" class="expand">PayPal</a>-->
-<!--                                        </div>-->
-<!--                                        <div id="collapse4" class="collapsed">-->
-<!--                                            <div class="card-body">-->
-<!--                                                Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra-->
-<!--                                                non, semper suscipit, posuere a, pede. Donec nec justo eget-->
-<!--                                                felis facilisis fermentum.-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="card">-->
-<!--                                        <div class="card-header">-->
-<!--                                            <a href="#collapse5" class="expand">Credit Card (Stripe)</a>-->
-<!--                                        </div>-->
-<!--                                        <div id="collapse5" class="collapsed">-->
-<!--                                            <div class="card-body">-->
-<!--                                                Donec nec justo eget felis facilisis fermentum.Lorem ipsum dolor-->
-<!--                                                sit amet, consectetuer adipiscing elit. Donec odio. Quisque-->
-<!--                                                volutpat mattis eros. Lorem ipsum dolor sit ame.-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
+
                             </div>
 
                             <button type="submit" id="form-button" class="btn btn-primary btn-order">Shipping</button>
@@ -208,13 +122,13 @@
     }
 
     if (user != 'AnonymousUser'){
-        document.getElementById('userinfo').innerHTML = ''
+        document.getElementById('user-info').innerHTML = ''
     }
 
-    if(shipping == 'False' && user != 'AnonymousUser'){
-        document.getElementById('form-wrapper').classList.add('hidden')
-        document.getElementById('payment-info').classList.remove('hidden')
-    }
+<!--    if(shipping == 'False' && user != 'AnonymousUser'){-->
+<!--        document.getElementById('form-wrapper').classList.add('hidden')-->
+<!--        document.getElementById('payment-info').classList.remove('hidden')-->
+<!--    }-->
 
     var form = document.getElementById('form')
 
@@ -257,21 +171,30 @@
             userFormData.email = form.email.value
         }
 
-<!--        var url = 'order_process'-->
-<!--        fetch(url,{-->
-<!--            method: 'POST'-->
-<!--            headers: {-->
-<!--                'Content-Type': 'application/json',-->
-<!--                'X-CSRFToken' : csrftoken-->
-<!--            },-->
-<!--            body:JSON.stringify({'form': userFormData, 'shipping':shippingInfo})-->
-<!--        })-->
-<!--        .then((response)=> response.json())-->
-<!--        .then((data)=> {-->
-<!--        console.log('success', data)-->
-<!--        alert('complated')-->
-<!--        window.location.href = "{% url 'store' %}"-->
-<!--        })-->
+        var url = 'order_process'
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-Type':'applicaion/json',
+                'X-CSRFToken': csrftoken
+            },
+            body:JSON.stringify({'form': userFormData, 'shipping': shippingInfo})
+        })
+        .then((response)=>{
+            return response.json()
+        })
+
+        .then((data)=>{
+            console.log(data)
+
+        cart = {}
+        document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;path=/'
+
+        window.location.href = "{% url 'store' %}"
+        })
+
+
     }
 
 </script>
