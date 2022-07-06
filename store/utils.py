@@ -77,10 +77,11 @@ def guestOrder(request, data):
         complete=False,
     )
 
+    # print(items)
     for item in items:
         print('ok')
         # print(item.product.id)
-        product = Product.objects.get(id=item['id'])
+        product = Product.objects.get(id=item['product']['id'])
 
         print(product)
         print('ok')

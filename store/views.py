@@ -97,9 +97,12 @@ def orderProsess(request):
     total = float(data['form']['total'])
     order.transection_id = transection_id
 
-    if total == float(order.get_cart_total):
+    print(transection_id)
+
+    if total == order.get_cart_total:
         order.complete = True
     order.save()
+    print(order.transection_id)
 
     if order.shipping == True:
         ShippingAddress.objects.create(
@@ -110,6 +113,7 @@ def orderProsess(request):
             state=data['shipping']['state'],
             zipcode=data['shipping']['zipcode'],
         )
+
 
 
     return JsonResponse('ok', safe=False)
