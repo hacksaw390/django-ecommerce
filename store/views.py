@@ -113,7 +113,4 @@ def orderProsess(request):
             state=data['shipping']['state'],
             zipcode=data['shipping']['zipcode'],
         )
-
-
-
     return JsonResponse('ok', safe=False)
